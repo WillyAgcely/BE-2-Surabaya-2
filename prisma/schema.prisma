@@ -1,0 +1,36 @@
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Services {
+    id Int @id @default(autoincrement())
+    name String @db.VarChar(100)
+    price Int
+    time Int
+}
+
+model users {
+    id Int @id @default(autoincrement())
+    username String @db.VarChar(100)
+    password String @db.VarChar(100)
+}
+
+model search {
+    id Int @id @default(autoincrement())
+    location String @db.VarChar(100)
+    pickupDate DateTime
+    returnDate DateTime
+}
+
+model rental {
+    id Int @id @default(autoincrement())
+    name String @db.VarChar(100)
+    location String @db.VarChar(100)
+    pickupDate DateTime
+    returnDate DateTime
+}
